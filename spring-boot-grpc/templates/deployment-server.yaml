@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-example-server
+  namespace: spring-boot-grpc
+  labels:
+    app: spring-boot-grpc
+    type: grpc-example-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-grpc
+  template:
+    metadata:
+      labels:
+        app: spring-boot-grpc
+        type: grpc-example-server
+    spec:
+      containers:
+        - name: grpc-example-server
+          image: localhost:5000/grpc-server
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: grpc
+              containerPort: 9090
+              protocol: TCP

@@ -1,0 +1,7 @@
+server:
+  port: 80
+grpc:
+  client:
+    myService:
+      address: dns:///grpc-example-server:9090
+      negotiationType: PLAINTEXT
