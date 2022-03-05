@@ -1,6 +1,7 @@
 # Prerequisite
 
-A docker registry runs under `localhost:5000`.
+* A docker registry runs under `localhost:5000`.
+* The Kubernetes namespace `spring-boot-grpc` does not exist yet.
  
 # Build
 
@@ -21,4 +22,11 @@ helm install spring-boot-grpc spring-boot-grpc
 
 ```
 curl -H "Content-Type: text/plain" -d "Hello from cURL!" localhost
+```
+
+# Cleanup
+
+```
+helm uninstall spring-boot-grpc
+kubectl delete namespace spring-boot-grpc
 ```
